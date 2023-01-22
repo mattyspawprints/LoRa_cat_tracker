@@ -222,6 +222,7 @@ Open the imager and insert a micro sd cart into your computer.
 
 Choose the Raspberry Pi Os (32-Bit) operating system and your sd card.
 Click on the gear and configurate following settings.
+
 <img width="762" alt="rp-imager settings" src="https://user-images.githubusercontent.com/122114833/211622811-4d480d6e-ecd7-4f8f-a09f-ba12be704bfe.png">
 
 
