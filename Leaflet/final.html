@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Mattys Tracker</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script src="/polylineDecorator/leaflet.polylineDecorator.js"></script>
+
+
+    <style>
+        .leaflet-popup-tip-container {
+            display: none;
+        } 
+
+
+        .mapContainer{
+            background-color:white;
+            width: 1600px;
+            margin-left: 20px;
+            margin-top: 25px;
+        }
+        
+
+    </style>
+
+
+</head>
+<body>
+
+
+  <div>
+        <div class="mapContainer">
+            <div id = "map" style = "width: 1000px; height: 1000px"></div>
+            <script>
+
+
+var latlngs = [
+    [48.741612, 10.788887],
+    [48.742862, 10.791535],
+    [48.741746, 10.790720],
+    [48.743377, 10.792265],
+    [48.743548, 10.792737],
+    [48.743463, 10.792651],
+    [48.743162, 10.792480],
+    [48.741772, 10.788887],
+ ];
+
+
+ // Creating map options
+ var mapOptions = {
+    center: latlngs[0],
+    zoom: 20,
+ }
+ 
+ // Creating a map object
+ var map = new L.map('map', mapOptions);
+ 
+ // Creating a Layer object
+ var layer = new L.TileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+ 
+ // Adding layer to the map
+ map.addLayer(layer);
+ 
+ 
+ var myIcon = L.icon({
+ iconUrl: 'images/noun-black-cat.png',
+ iconSize: [60, 60],
+ iconAnchor: [30, 30],
+ });
+
+ var myIcon1 = L.icon({
+     iconUrl: 'images/black_cat_left.png',
+     iconSize: [60, 60],
+     iconAnchor: [30, 30],
+ });
+
+ 
+
+
+ 
+ let tooltipOptions = {
+     permanent: true,
+ }
+
+
+
+ for(var i = 0; i < latlngs.length; i++){
+    let marker = new L.Marker(latlngs[i], {title: i+1, zIndexOffset: 100});
+    if(i > (latlngs.length/2)) {
+        marker.setIcon(myIcon1);
+    }else{
+        marker.setIcon(myIcon);
+    }
+    marker.addTo(map);  
+ }
+
+
+var polyline = L.polyline(latlngs, {color: 'red',opacity:0.3}).addTo(map);
+
+
+var pfote = L.polylineDecorator(polyline, {
+patterns: [
+{ offset: '1%', repeat: '3%', endOffset: '1%', symbol: L.Symbol.marker({rotate: true, markerOptions: {
+icon: L.icon({
+iconUrl: 'images/pawBlue.png',
+iconAnchor: [7, 7],
+iconSize: [14, 14],
+
+})
+}})}
+]
+}).addTo(map);
+            </script>
+            
+
+             black cat by varvarvarvarra from <a href="https://thenounproject.com/browse/icons/term/black-cat/" target="_blank" title="black cat Icons">Noun Project</a>
+         
+        </div>
+
+    </div>
+
+    
+</body>
+</html>
