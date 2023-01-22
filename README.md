@@ -12,7 +12,7 @@ There is also a portable receiver in case the Raspberry Pi doesn’t receive the
 <img width="790" alt="leaflet" src="https://user-images.githubusercontent.com/122114833/213924388-980c956e-1a5f-451e-aa88-0f8108bc1841.png">
 
 
-[map](https://htmlpreview.github.io/?https://github.com/mattyspawprints/LoRa_cat_tracker/blob/main/Leaflet/final.html)
+[map](http://hs-augsburg.de/~lekr6621/Mattys_Website/final.html)
 
 ## Parts List
 Before you buy one of the LoRa boards, check if the board has the correct frequency
